@@ -1,0 +1,57 @@
+def main():
+    # Prices for items
+    coffee_price = 5.00
+    muffin_price = 4.00
+    tea_price = 3.00
+    cookie_price = 2.00
+
+    # Get user input for the number of items
+    num_coffees = int(input("Number of coffees bought? "))
+    num_muffins = int(input("Number of muffins bought? "))
+    num_teas = int(input("Number of teas bought? "))
+    num_cookies = int(input("Number of cookies bought? "))
+
+    # Calculate subtotal
+    subtotal_coffee = num_coffees * coffee_price
+    subtotal_muffin = num_muffins * muffin_price
+    subtotal_tea = num_teas * tea_price
+    subtotal_cookie = num_cookies * cookie_price
+    subtotal = subtotal_coffee + subtotal_muffin + subtotal_tea + subtotal_cookie
+
+    # Calculate tax
+    tax_rate = 0.06
+    tax = subtotal * tax_rate
+
+    # Calculate total
+    total = subtotal + tax
+
+    # Format and display the receipt
+    print_receipt(num_coffees, subtotal_coffee, coffee_price, 
+                  num_muffins, subtotal_muffin, muffin_price, 
+                  num_teas, subtotal_tea, tea_price, 
+                  num_cookies, subtotal_cookie, cookie_price, 
+                  tax, total)
+
+def print_receipt(num_coffees, coffee_total, coffee_price, 
+                  num_muffins, muffin_total, muffin_price, 
+                  num_teas, tea_total, tea_price, 
+                  num_cookies, cookie_total, cookie_price, 
+                  tax, total):
+    # Print receipt header
+    print("***************************************")
+    print("My Coffee and Muffin Shop Receipt")
+    # Print itemized costs
+    print(f"{num_coffees} Coffee at ${coffee_price:.2f} each: ${coffee_total:.2f}")
+    print(f"{num_muffins} Muffins at ${muffin_price:.2f} each: ${muffin_total:.2f}")
+    print(f"{num_teas} Tea at ${tea_price:.2f} each: ${tea_total:.2f}")
+    print(f"{num_cookies} Cookies at ${cookie_price:.2f} each: ${cookie_total:.2f}")
+    print(f"6% tax: ${tax:.2f}")
+    print("---------")
+    print(f"Total: ${total:.2f}")
+    # Print thank you message
+    print("Thank you for your purchase! Come back soon!")
+    print("***************************************")
+
+# Run the program
+if __name__ == "__main__":
+    main()
